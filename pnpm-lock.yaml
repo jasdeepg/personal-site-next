@@ -25,7 +25,7 @@ importers:
         specifier: ^3.20.0
         version: 3.21.0(payload@3.21.0(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))
       '@payloadcms/richtext-lexical':
-        specifier: ^3.20.0
+        specifier: ^3.21.0
         version: 3.21.0(ffc7aff1c98cff5af848fb8d6e1410f3)
       '@radix-ui/react-accordion':
         specifier: ^1.2.2

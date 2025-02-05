@@ -1,4 +1,4 @@
-import { RelationshipFeature } from '@payloadcms/richtext-lexical'
+import { RelationshipFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
@@ -17,9 +17,9 @@ export const Posts: CollectionConfig = {
     {
         name: 'body',
         type: 'richText',
+        editor: lexicalEditor({}),
         required: true
     },
 
-  ],
-  upload: true,
+  ]
 }
