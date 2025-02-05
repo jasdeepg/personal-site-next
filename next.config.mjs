@@ -1,3 +1,4 @@
+import { withPayload } from "@payloadcms/next/withPayload";
 let userConfig = undefined
 try {
   userConfig = await import('./v0-user-next.config')
@@ -45,4 +46,4 @@ function mergeConfig(nextConfig, userConfig) {
   }
 }
 
-export default nextConfig
+export default withPayload(nextConfig)
