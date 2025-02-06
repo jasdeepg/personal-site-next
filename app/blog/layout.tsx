@@ -4,7 +4,7 @@ import Link from "next/link"
 import "./globals.css"
 import type React from "react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] })
 const crimsonText = Crimson_Text({
@@ -46,6 +46,7 @@ export default function RootLayout({
         </header>
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
