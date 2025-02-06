@@ -3,6 +3,7 @@ import { Inter, Crimson_Text } from "next/font/google"
 import Link from "next/link"
 import "./globals.css"
 import type React from "react" // Import React
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] })
 const crimsonText = Crimson_Text({
@@ -43,6 +44,7 @@ export default function RootLayout({
           </nav>
         </header>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   )
