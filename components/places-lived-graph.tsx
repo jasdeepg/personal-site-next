@@ -31,7 +31,7 @@ const rawData: PlaceData[] = [
   { month: 7, distance: 1463, city: "Denver, CO", time_of: 2019 },
   { month: 8, distance: 1463, city: "Denver, CO", time_of: 2022 },
   { month: 9, distance: 1479, city: "Boulder, CO", time_of: 2022 },
-  { month: 12, distance: 1479, city: "Boulder, CO", time_of: 2024 },
+  { month: 12, distance: 1479, city: "Boulder, CO", time_of: 2025 },
 ]
 
 export function PlacesLivedGraph() {
@@ -44,7 +44,7 @@ export function PlacesLivedGraph() {
     d3.select(svgRef.current).selectAll("*").remove()
 
     // Set up dimensions
-    const width = 600
+    const width = 700
     const height = 700
     const margin = { top: 20, right: 100, bottom: 30, left: 40 }
 
@@ -130,7 +130,7 @@ export function PlacesLivedGraph() {
       .attr("x", (d) => xScale(d.distance) + 5)
       .attr("y", (d) => yScale(new Date(d.time_of, d.month - 1)) - 5)
       .attr("text-anchor", "start")
-      .attr("font-size", "10px")
+      .attr("font-size", "14px")
       .text((d) => d.city)
 
     // Add axes
@@ -147,7 +147,7 @@ export function PlacesLivedGraph() {
       .attr("y", 25)
       .attr("fill", "currentColor")
       .attr("text-anchor", "middle")
-      .text("Distance")
+      .text("Distance (mi)")
 
     // Add y-axis
     svg

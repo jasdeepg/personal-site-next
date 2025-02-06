@@ -5,6 +5,7 @@ import configPromise from '@payload-config'
 import type { Metadata } from 'next/types'
 import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { Post } from '@/payload-types'
 
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
@@ -35,7 +36,15 @@ export default async function Post({ params }: Props) {
     <div className="pt-8">
       <div className={cn('container')}>
         <article className="prose dark:prose-invert">
-          <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
+        <h1 className="text-4xl font-bold">{post.title}</h1>
+        <span className="text-gray-600">
+          {new Intl.DateTimeFormat('en-US', {
+              month: '2-digit',
+              day: '2-digit',
+              year: 'numeric'
+            }).format(new Date(post.publishedAt))
+          } 
+        </span>
           <RichText 
             data={post.content}
             className="max-w-[48rem] mx-auto"
@@ -59,4 +68,20 @@ export async function generateStaticParams() {
     return posts.docs.map((post) => ({
       slug: String(post.slug) // Ensure slug is a string
     }))
+  }
+
+  export async function generateMetadata(
+    { params }: Props
+  ) {
+    const resolvedParams = await Promise.resolve(params)
+    const { slug } = resolvedParams
+    
+    const post = await queryPostBySlug({ slug })
+   
+    const post_title = post.title
+    //const post_description = post.meta_description
+
+    return {
+      title: post_title,
+    }
   }

@@ -14,8 +14,8 @@ const crimsonText = Crimson_Text({
 })
 
 export const metadata: Metadata = {
-  title: "hi, i'm jasdeep",
-  description: "Personal website and blog",
+  title: "blog",
+  description: "where i write ",
 }
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${crimsonText.variable} font-serif max-w-3xl mx-auto px-4 py-8`}>
-        <header className="mb-12">
+        <header>
           <h1 className="text-4xl mb-2">hi, i&apos;m jasdeep</h1>
           <nav>
             <ul className="flex gap-2 text-lg">
