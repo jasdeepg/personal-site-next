@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local env files
-.env*.local
+.env*
 
 # Vercel
 .vercel
@@ -41,3 +41,4 @@ next-env.d.ts
 # Operating System Files
 Thumbs.db
 
+.env

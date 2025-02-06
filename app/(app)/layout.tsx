@@ -29,7 +29,7 @@ export default function RootLayout({
           <nav>
             <ul className="flex gap-2 text-lg">
               <li>
-                <Link href="/about-me" className="hover:underline">
+                <Link href="/" className="hover:underline">
                   about me
                 </Link>
               </li>
