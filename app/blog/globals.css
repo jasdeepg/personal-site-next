@@ -18,3 +18,109 @@ a {
   text-decoration: underline;
 }
 
+.list-bullet {
+  list-style-position: inside;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.list-bullet li {
+  text-align: left;
+  display: list-item;
+  list-style-type: disc; /* or decimal if you want numbers */
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 2rem 0 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin: 2rem 0 1.25rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+  margin: 1.75rem 0 1rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1.5rem 0 1rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 1.25rem 0 0.75rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 1rem 0 0.75rem;
+  font-weight: 500;
+}
+
+/* Paragraphs */
+p {
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}
+
+/* First paragraph after headings */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0.75rem;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 4px; /* Optional: rounded corners */
+}
+
+/* Figure with caption */
+figure {
+  margin: 2rem 0;
+}
+
+figcaption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.1rem; }
+  h6 { font-size: 1rem; }
+}
+
+/* Content container - Optional: If you want to constrain content width */
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}

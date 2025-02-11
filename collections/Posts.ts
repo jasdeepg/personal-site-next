@@ -15,10 +15,17 @@ import {
     HeadingFeature,
     HorizontalRuleFeature,
     InlineToolbarFeature,
+    EXPERIMENTAL_TableFeature
   } from '@payloadcms/richtext-lexical'
 
   export const Posts: CollectionConfig<'posts'> = {
     slug: 'posts',
+    access: {
+      read: () => true,  // Ensure admin has proper access
+      update: () => true,
+      delete: () => true,
+      create: () => true,
+    },
     defaultPopulate: {
       title: true,
       slug: true,
@@ -85,6 +92,7 @@ import {
                       FixedToolbarFeature(),
                       InlineToolbarFeature(),
                       HorizontalRuleFeature(),
+                      EXPERIMENTAL_TableFeature()
                     ]
                   },
                 }),
