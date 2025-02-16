@@ -2,11 +2,19 @@
 /* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
 import type { Metadata } from 'next'
 
-import config from '../../../../payload.config'
 import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
 import { importMap } from '../importMap'
 
-type Args = {
+import type { GetServerSideProps } from 'next';
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const config = (await import('../../../../payload.config')).default; // ✅ Import only on the server
+  return {
+    props: { config }, // ✅ Only pass safe props to the client
+  };
+};
+
+type Args = {git 
   params: Promise<{
     segments: string[]
   }>
