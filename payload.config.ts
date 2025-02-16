@@ -43,8 +43,11 @@ export default buildConfig({
       collections: {
         media: true,
         'Media': {
-          prefix: 'jsg_',
+          prefix: 'media_',
         },
+        'Posts': {
+          prefix: 'hero_'
+        }
       },
       // Token provided by Vercel once Blob storage is added to your Vercel project
       token: process.env.BLOB_READ_WRITE_TOKEN,
