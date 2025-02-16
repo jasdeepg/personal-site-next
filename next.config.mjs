@@ -6,6 +6,14 @@ try {
   // ignore error
 }
 
+module.exports = {
+  experimental: {
+    outputFileTracingIncludes: {
+      "*": ["./payload.config.ts"], // ⬅️ Ensure it's deployed
+    },
+  },
+};
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
