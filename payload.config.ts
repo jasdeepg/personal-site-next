@@ -6,6 +6,8 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -35,6 +37,17 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    vercelBlobStorage({
+      enabled: true,
+      // Specify which collections should use Vercel Blob
+      collections: {
+        media: true,
+        'Media': {
+          prefix: 'jsg_',
+        },
+      },
+      // Token provided by Vercel once Blob storage is added to your Vercel project
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
   ],
 })
