@@ -6,14 +6,6 @@ try {
   // ignore error
 }
 
-module.exports = {
-  experimental: {
-    outputFileTracingIncludes: {
-      "*": ["./payload.config.ts"], // ⬅️ Ensure it's deployed
-    },
-  },
-};
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -29,6 +21,9 @@ const nextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
+    outputFileTracingIncludes: {
+      "*": ["./payload.config.ts"], // ✅ Ensure Payload config is included in Vercel build
+    },
   },
 }
 
