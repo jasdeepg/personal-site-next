@@ -60,3 +60,33 @@ export async function generateStaticParams() {
       slug: String(post.slug) // Ensure slug is a string
     }))
   }
+
+  export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const { slug } = params
+    const post = await queryPostBySlug({ slug })
+  
+    if (!post) {
+      return {
+        title: 'Post Not Found',
+        description: 'The requested post could not be found.',
+      }
+    }
+  
+    return {
+      title: post.title,
+      description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
+      openGraph: {
+        title: post.title,
+        description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
+        url: `/blog/${slug}`,
+        type: 'article',
+        images: post.meta.image || [],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
+        images: post.meta.image || [],
+      },
+    }
+  }
