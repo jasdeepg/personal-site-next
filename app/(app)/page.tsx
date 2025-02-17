@@ -38,12 +38,12 @@ export default function Home() {
         </p>
 
         <p className="mb-4">
-          On this site, I mostly log projects I&apos;ve done in the past and store quick notes/thoughts. The site was
-          built with Python, Flask, Foundation, D3, and ButterCMS.
+          On this site, I mostly store quick notes/thoughts. The site was
+          built with React, NextJS, TailwindCSS, D3, Vercel, and PayloadCMS.
         </p>
 
         <p>
-          To contact me directly, you can reach out at <a href="mailto:jasdeep@example.com">jasdeep@example.com</a>
+          To contact me directly, you can reach out at <a href="mailto:jasdeepsgarcha@gmail.com">jasdeep@example.com</a>
         </p>
       </section>
 
