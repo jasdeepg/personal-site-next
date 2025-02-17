@@ -61,32 +61,32 @@ export async function generateStaticParams() {
     }))
   }
 
-  export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const { slug } = params
-    const post = await queryPostBySlug({ slug })
-  
-    if (!post) {
-      return {
-        title: 'Post Not Found',
-        description: 'The requested post could not be found.',
-      }
-    }
-  
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params
+  const post = await queryPostBySlug({ slug })
+
+  if (!post) {
     return {
-      title: post.title,
-      description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
-      openGraph: {
-        title: post.title,
-        description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
-        url: `/blog/${slug}`,
-        type: 'article',
-        images: post.meta.image || [],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: post.title,
-        description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
-        images: post.meta.image || [],
-      },
+      title: 'Post Not Found',
+      description: 'The requested post could not be found.',
     }
   }
+
+  return {
+    title: post.title,
+    description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
+    openGraph: {
+      title: post.title,
+      description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
+      url: `/blog/${slug}`,
+      type: 'article',
+      images: post.meta.image || [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.meta.description || post.content?.substring(0, 160) || 'Read more about this topic.',
+      images: post.meta.image || [],
+    },
+  }
+}
