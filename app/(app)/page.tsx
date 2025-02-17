@@ -43,7 +43,7 @@ export default function Home() {
         </p>
 
         <p>
-          To contact me directly, you can reach out at <a href="mailto:jasdeepsgarcha@gmail.com">jasdeepsgarcha@gmail.com</a>
+          To contact me directly, you can reach out at <a href="mailto:jasdeepsgarcha@gmail.com">jasdeepsgarcha+test@gmail.com</a>
         </p>
       </section>
 
