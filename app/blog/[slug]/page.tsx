@@ -5,7 +5,7 @@ import configPromise from '@payload-config'
 import type { Metadata } from 'next/types'
 import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
-
+import styles from '@/styles/blogLayout.module.css';
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
   const payload = await getPayload({ config: configPromise })
@@ -32,7 +32,7 @@ export default async function Post({ params }: Props) {
   }
 
   return (
-    <div className="pt-8">
+    <div className="blog-content pt-8">
       <div className={cn('container')}>
         <article className="prose dark:prose-invert">
           <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
