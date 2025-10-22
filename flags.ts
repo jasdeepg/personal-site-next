@@ -1,21 +1,18 @@
 import { flag } from '@vercel/flags/next';
+import { vercelAdapter } from '@vercel-private/flags-adapter-native';
+
 
 export const companyFlag = flag<boolean>({
   key: 'company-flag',
-  description: 'Change company name',
-  decide: () => false, // Default to false
+  adapter: vercelAdapter()
 });
 
 export const showPlacesGraph = flag<boolean>({
   key: 'show-places-graph',
-  description: 'Show the places lived graph on homepage',
-  origin: 'https://vercel.com/docs/workflow-collaboration/feature-flags',
-  decide: () => true, // Default to true (show the graph)
+  adapter: vercelAdapter()
 });
 
 export const showContactSection = flag<boolean>({
   key: 'show-contact-section',
-  description: 'Show contact email section on homepage',
-  origin: 'https://vercel.com/docs/workflow-collaboration/feature-flags',
-  decide: () => true, // Default to true (show contact section)
+  adapter: vercelAdapter()
 });
