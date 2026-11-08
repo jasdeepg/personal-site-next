@@ -64,14 +64,31 @@ a {
   @apply my-4 pl-6;
 }
 
-.blog-content li {
-  @apply relative mb-1 pl-6;
+.blog-content ul {
+  list-style-type: disc;
 }
 
-/* Ensure bullet points align properly */
-.blog-content li::before {
-  content: '•';
-  @apply absolute left-0 text-[var(--color-accent)];
+.blog-content ol {
+  list-style-type: decimal;
+}
+
+.blog-content li {
+  @apply mb-1 pl-1;
+}
+
+.blog-content li::marker {
+  color: var(--color-accent);
+}
+
+/* Lexical exports nested lists inside markerless wrapper items. */
+.blog-content li.nestedListItem {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.blog-content li > ul,
+.blog-content li > ol {
+  @apply my-2;
 }
 
 /* Blog Content - Code Blocks */
