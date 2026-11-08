@@ -47,8 +47,8 @@ export default async function Home() {
         </p>
 
         <p className="mb-4">
-          On this site, I mostly store quick notes/thoughts. The site was
-          built with React, NextJS, TailwindCSS, D3, Vercel, and PayloadCMS.
+          On this site, I mostly store quick notes/thoughts. The site is
+          built with React, Next.js, Tailwind CSS, and D3, and hosted on Vercel.
         </p>
 
         {showContact && (
