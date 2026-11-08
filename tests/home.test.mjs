@@ -23,7 +23,7 @@ async function renderHome() {
         companyFlag: async () => { throw new Error('The demo flag must not be evaluated') },
       }
       if (name === '@/components/places-lived-graph') return { PlacesLivedGraph: () => null }
-      if (name === 'next/link') return (props) => React.createElement('a', props)
+      if (name === 'next/link') return function MockLink(props) { return React.createElement('a', props) }
       return require(name)
     },
   }

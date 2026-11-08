@@ -1,22 +1,19 @@
-import type { Metadata } from "next"
-import { Inter, Crimson_Text } from "next/font/google"
+import { blogMetadata, personSchema, websiteSchema } from "@/lib/site"
+import { StructuredData } from "@/components/structured-data"
+import { Crimson_Text } from "next/font/google"
 import Link from "next/link"
 import "./globals.css"
 import type React from "react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
-const inter = Inter({ subsets: ["latin"] })
 const crimsonText = Crimson_Text({
   weight: ["400", "600"],
   subsets: ["latin"],
   variable: "--font-crimson",
 })
 
-export const metadata: Metadata = {
-  title: "hi, i'm jasdeep",
-  description: "Personal website and blog",
-}
+export const metadata = blogMetadata
 
 export default function RootLayout({
   children,
@@ -24,10 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${crimsonText.variable} font-serif max-w-3xl mx-auto px-4 py-8`}>
+    <div className={`${crimsonText.variable} font-serif max-w-3xl mx-auto px-4 py-8`}>
+        <StructuredData data={[personSchema, websiteSchema]} />
         <header className="mb-12">
-          <h1 className="text-4xl mb-2">hi, i&apos;m jasdeep</h1>
+          <p className="text-4xl mb-2">hi, i&apos;m jasdeep</p>
           <nav>
             <ul className="flex gap-2 text-lg">
               <li>
@@ -47,8 +44,7 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <Analytics />
-      </body>
-    </html>
+    </div>
   )
 }
 

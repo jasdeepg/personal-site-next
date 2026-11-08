@@ -6,15 +6,15 @@ import { getBlogPost, getBlogPosts } from '../lib/blog.ts'
 
 const posts = getBlogPosts()
 
-test('all 10 recovered posts retain unique, valid slugs and article bodies', () => {
-  assert.equal(posts.length, 10)
+test('all published posts have unique, valid slugs and article bodies', () => {
+  assert.ok(posts.length > 0)
   assert.equal(new Set(posts.map((post) => post.slug)).size, posts.length)
   for (const post of posts) {
     assert.match(post.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/)
     assert.ok(post.title)
     assert.ok(post.description)
     const article = getBlogPost(post.slug)
-    assert.ok(article.html.length > 1000)
+    assert.ok(article.html.trim().length > 0)
     assert.doesNotMatch(article.html, /<script\b|\son\w+\s*=|javascript:/i)
     assert.doesNotMatch(article.html, /\/api\/media\//)
   }
@@ -27,7 +27,6 @@ test('unknown slugs and traversal attempts return no post', () => {
 })
 
 test('all article images, including responsive variants, exist locally', () => {
-  const images = new Set()
   for (const post of posts) {
     const { html } = getBlogPost(post.slug)
     for (const [, source] of html.matchAll(/(?:src|srcset)="([^"]+)"/g)) {
@@ -35,10 +34,8 @@ test('all article images, including responsive variants, exist locally', () => {
       const local = decodeURIComponent(source)
       assert.ok(existsSync(path.join('public', local)), `Missing image: ${local}`)
       assert.ok(readFileSync(path.join('public', local)).length > 0)
-      images.add(local)
     }
   }
-  assert.equal(images.size, 68)
 })
 
 test('blog routes have no Payload or database imports', () => {

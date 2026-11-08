@@ -21,4 +21,4 @@ Only repository-owned, reviewed HTML belongs here. It is rendered directly, not 
 
 The 10 articles listed on https://www.jasgarcha.com/blog were recovered from their published HTML on 2026-11-08. Their existing slugs, order, titles, descriptions, body markup, and links were retained. All 68 referenced image files (including responsive variants) were recovered from the existing Vercel Blob store and copied locally. CMS image URLs were rewritten to local paths.
 
-This recovers the published site, not a complete database export. Drafts, revision history, unpublished posts, and CMS-only metadata were not available from the public pages. Payload's separate admin/API routes remain in the project; this migration only disconnects the public blog from the CMS.
+This recovers the published site, not a complete database export. Drafts, revision history, unpublished posts, and CMS-only metadata were not available from the public pages. The old Payload admin/API routes and database configuration have been removed.

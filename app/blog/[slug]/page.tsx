@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { createMetadata, site } from '@/lib/site'
+import { StructuredData } from '@/components/structured-data'
 import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { getBlogPost, getBlogPosts } from '@/lib/blog'
@@ -18,6 +20,16 @@ export default async function Post({ params }: Props) {
     <div className="blog-content pt-8">
       <div className={cn('container')}>
         <article className="prose dark:prose-invert">
+          <StructuredData data={{
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            '@id': `${site.url}/blog/${post.slug}#article`,
+            headline: post.title,
+            description: post.description,
+            mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+            author: { '@type': 'Person', '@id': `${site.url}/#person`, name: site.name, url: site.url },
+            inLanguage: 'en',
+          }} />
           <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
           {/* Only reviewed, repository-owned HTML is rendered here. */}
           <div
@@ -39,19 +51,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost(slug)
   if (!post) notFound()
 
-  return {
+  return createMetadata({
     title: post.title,
     description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      url: `/blog/${post.slug}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
-    },
-  }
+    pathname: `/blog/${post.slug}`,
+    article: true,
+  })
 }

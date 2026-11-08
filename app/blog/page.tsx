@@ -1,5 +1,5 @@
-import type { Metadata } from 'next/types'
-import { cn } from '../../utilities/ui'
+import { blogMetadata } from '@/lib/site'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
 
@@ -12,6 +12,7 @@ export default async function Page() {
   return (
     <div className="pt-8">
     <div className={cn('container')}>
+        <h1 className="text-2xl mb-6">Blog</h1>
         <ul className="list-disc pl-5 space-y-1">
         {posts.map((result) => (
             <li key={result.slug}>
@@ -31,8 +32,4 @@ export default async function Page() {
   )
 }
 
-export function generateMetadata(): Metadata {
-  return {
-    title: `jasdeep's blog`,
-  }
-}
+export const metadata = blogMetadata
