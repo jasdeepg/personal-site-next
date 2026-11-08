@@ -1,6 +1,8 @@
 import { flag } from 'flags/next';
-import { vercelAdapter } from '@flags-sdk/vercel';
+import { createVercelAdapter } from '@flags-sdk/vercel';
 
+// Use this deployment's OIDC identity, not the legacy FLAGS connection string.
+const vercelAdapter = createVercelAdapter();
 
 export const companyFlag = flag<boolean>({
   key: 'company-flag',
