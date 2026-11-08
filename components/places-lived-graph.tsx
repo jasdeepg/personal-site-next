@@ -44,7 +44,11 @@ export function PlacesLivedGraph() {
     d3.select(svgRef.current).selectAll("*").remove()
 
     const now = new Date()
-    const currentPlace = rawData[rawData.length - 1]
+    // Mark arrivals only, not later observations of the same continuous stay.
+    const moves = rawData.filter((place, index) => {
+      const previous = rawData[index - 1]
+      return !previous || place.city !== previous.city || place.distance !== previous.distance
+    })
 
     // Set up dimensions
     const width = 600
@@ -104,26 +108,16 @@ export function PlacesLivedGraph() {
       .attr("stroke", "steelblue")
       .attr("stroke-width", 0.5)
 
-    // Add points
+    // Add one point per arrival, preserving return visits after moving away.
     svg
       .selectAll("circle")
-      .data(rawData)
+      .data(moves)
       .enter()
       .append("circle")
       .attr("cx", (d) => xScale(d.distance))
       .attr("cy", (d) => yScale(new Date(d.time_of, d.month - 1)))
       .attr("r", 3)
       .attr("fill", "orange")
-
-    // Mark the current endpoint without adding a fictional move to the history.
-    svg
-      .append("circle")
-      .attr("cx", xScale(currentPlace.distance))
-      .attr("cy", yScale(now))
-      .attr("r", 3)
-      .attr("fill", "orange")
-      .append("title")
-      .text(`${currentPlace.city} — ${now.toLocaleDateString()}`)
 
     // Add city labels (only for the first occurrence of each city)
     const uniqueCities = new Set<string>()
