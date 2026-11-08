@@ -23,11 +23,15 @@ export default async function Home() {
         </p>
 
         <p className="mb-4">
-          I co-founded{" "}
+          I&apos;m currently building at{" "}
+          <a href="https://vercel.com" className="font-semibold">
+            Vercel
+          </a>
+          . Previously, I co-founded{" "}
           <a href="#" className="font-semibold">
             Schematic
           </a>{" "}
-          in 2023, and I built with smart and talented people at{" "}
+          and built with smart and talented people at{" "}
           <a href="#" className="font-semibold">
             Automox
           </a>
@@ -72,4 +76,3 @@ export default async function Home() {
     </main>
   )
 }
-

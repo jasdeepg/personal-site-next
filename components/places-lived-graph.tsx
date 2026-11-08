@@ -43,6 +43,9 @@ export function PlacesLivedGraph() {
     // Clear any existing SVG content
     d3.select(svgRef.current).selectAll("*").remove()
 
+    const now = new Date()
+    const currentPlace = rawData[rawData.length - 1]
+
     // Set up dimensions
     const width = 600
     const height = 700
@@ -51,7 +54,7 @@ export function PlacesLivedGraph() {
     // Create scales
     const yScale = d3
       .scaleTime()
-      .domain([new Date(d3.min(rawData, (d) => d.time_of)!, 0), new Date(d3.max(rawData, (d) => d.time_of)!, 11)])
+      .domain([new Date(d3.min(rawData, (d) => d.time_of)!, 0), now])
       .range([margin.top, height - margin.bottom])
 
     const xScale = d3
@@ -95,7 +98,7 @@ export function PlacesLivedGraph() {
       .attr("y1", (d) => yScale(new Date(d.time_of, d.month - 1)))
       .attr("x2", (d) => xScale(d.distance))
       .attr("y2", (d, i) => {
-        if (i === rawData.length - 1) return yScale(new Date(d.time_of, d.month - 1))
+        if (i === rawData.length - 1) return yScale(now)
         return yScale(new Date(rawData[i + 1].time_of, rawData[i + 1].month - 1))
       })
       .attr("stroke", "steelblue")
@@ -111,6 +114,16 @@ export function PlacesLivedGraph() {
       .attr("cy", (d) => yScale(new Date(d.time_of, d.month - 1)))
       .attr("r", 3)
       .attr("fill", "orange")
+
+    // Mark the current endpoint without adding a fictional move to the history.
+    svg
+      .append("circle")
+      .attr("cx", xScale(currentPlace.distance))
+      .attr("cy", yScale(now))
+      .attr("r", 3)
+      .attr("fill", "orange")
+      .append("title")
+      .text(`${currentPlace.city} — ${now.toLocaleDateString()}`)
 
     // Add city labels (only for the first occurrence of each city)
     const uniqueCities = new Set<string>()
@@ -169,4 +182,3 @@ export function PlacesLivedGraph() {
     </div>
   )
 }
-
