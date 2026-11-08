@@ -1,21 +1,13 @@
+import Link from "next/link"
 import { PlacesLivedGraph } from "@/components/places-lived-graph"
-import { companyFlag, showPlacesGraph, showContactSection } from "@/flags"
+import { showPlacesGraph, showContactSection } from "@/flags"
 
 export default async function Home() {
-  const showCompanyBanner = await companyFlag()
   const showGraph = await showPlacesGraph()
   const showContact = await showContactSection()
 
   return (
     <main className="space-y-8">
-      {showCompanyBanner && (
-        <section className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-          <p className="text-sm text-blue-800 dark:text-blue-200">
-            ✨ Company flag is enabled! This section is controlled by the <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">company-flag</code>.
-          </p>
-        </section>
-      )}
-
       <section>
         <p className="mb-4">
           In the past, I&apos;ve created digital and physical products to deliver content, chocolate, candy, and
@@ -28,30 +20,30 @@ export default async function Home() {
             Vercel
           </a>
           . Previously, I co-founded{" "}
-          <a href="#" className="font-semibold">
+          <a href="https://schematichq.com" className="font-semibold">
             Schematic
           </a>{" "}
-          and built with smart and talented people at{" "}
-          <a href="#" className="font-semibold">
+          and{" "}
+          <Link href="/blog/5-years-of-building" className="font-semibold">
+            Matcha
+          </Link>
+          , and built with smart and talented people at{" "}
+          <a href="https://www.automox.com" className="font-semibold">
             Automox
           </a>
           ,{" "}
-          <a href="#" className="font-semibold">
+          <a href="https://www.twilio.com" className="font-semibold">
             Twilio
           </a>
           ,{" "}
-          <a href="#" className="font-semibold">
-            Matcha
-          </a>
-          ,{" "}
-          <a href="#" className="font-semibold">
+          <a href="https://www.lolliandpops.com" className="font-semibold">
             Lolli and Pops
           </a>{" "}
-          and at{" "}
-          <a href="#" className="font-semibold">
+          and{" "}
+          <a href="https://www.microsoft.com" className="font-semibold">
             Microsoft
-          </a>{" "}
-          prior to that.
+          </a>
+          .
         </p>
 
         <p className="mb-4">
