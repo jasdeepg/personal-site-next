@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "on-parental-leave-at-early-stage-startups",
+    "title": "On parental leave at early stage startups",
+    "description": "ecoming a new parent has been one of the wildest experiences I’ve ever gone through, especially while designing my own parental leave policy.",
+    "source": "https://www.jasgarcha.com/blog/on-parental-leave-at-early-stage-startups"
+  },
+  {
+    "slug": "growth-teams-part-2",
+    "title": "Growth Teams Part 2",
+    "description": "Fynn and I explore how to quickly understand a business and establish conviction around where a nascent Growth team has the highest leverage.",
+    "source": "https://www.jasgarcha.com/blog/growth-teams-part-2"
+  },
+  {
+    "slug": "growth-teams-part-1",
+    "title": "Growth Teams Part 1",
+    "description": "A series exploring the rise of Growth Teams at SaaS companies with Fynn Glover",
+    "source": "https://www.jasgarcha.com/blog/growth-teams-part-1"
+  },
+  {
+    "slug": "why-are-we-yelling",
+    "title": "Why are we yelling?",
+    "description": "On May 26th, 2020, protests broke out over George Floyd's murder in Minneapolis. I've struggled recently with how to react productively to that.",
+    "source": "https://www.jasgarcha.com/blog/why-are-we-yelling"
+  },
+  {
+    "slug": "5-years-of-building",
+    "title": "Five years of building",
+    "description": "Reflections on building Matcha over the last 5 years.",
+    "source": "https://www.jasgarcha.com/blog/5-years-of-building"
+  },
+  {
+    "slug": "playing-with-fitness-data-using-pandas",
+    "title": "Playing with fitness data using Pandas",
+    "description": "I’ve never really had this type of insight into my heart rate, cadence, and general fitness, so after logging a dozen or so runs, it seemed like a fun data set to practice using Pandas with.",
+    "source": "https://www.jasgarcha.com/blog/playing-with-fitness-data-using-pandas"
+  },
+  {
+    "slug": "working-theory-of-social-dynamics",
+    "title": "Working theory of social dynamics",
+    "description": "I’ve thought a lot over the years about why some friend groups are so frictionless, and I think it’s due to strong social dynamics that balanced everyone within it.\n",
+    "source": "https://www.jasgarcha.com/blog/working-theory-of-social-dynamics"
+  },
+  {
+    "slug": "asking-good-questions-to-avoid-the-data-breadline",
+    "title": "Asking good questions to avoid the data breadline",
+    "description": "Great questions are the crux of data analysis and building compelling insights.",
+    "source": "https://www.jasgarcha.com/blog/asking-good-questions-to-avoid-the-data-breadline"
+  },
+  {
+    "slug": "working-with-wood",
+    "title": "Working with wood",
+    "description": "There are four major components of preparing wood for use in an interior or exterior setting.",
+    "source": "https://www.jasgarcha.com/blog/working-with-wood"
+  },
+  {
+    "slug": "data-retrieval-vs-analysis",
+    "title": "Data retrieval vs. analysis",
+    "description": "One consistent area that people tend to get caught up when studying SQL and creating data products is the difference between retrieval and analysis.",
+    "source": "https://www.jasgarcha.com/blog/data-retrieval-vs-analysis"
+  }
+]
