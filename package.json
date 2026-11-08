@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@opentelemetry/api": "^1.9.0",
     "@payloadcms/db-postgres": "3.20.0",
     "@payloadcms/next": "3.20.0",
     "@payloadcms/payload-cloud": "3.20.0",
@@ -45,7 +46,8 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@vercel/analytics": "^1.4.1",
     "@vercel/edge-config": "^1.4.2",
-    "@vercel/flags": "^3.1.1",
+    "@flags-sdk/vercel": "^1.6.0",
+    "flags": "^4.4.0",
     "@vercel/speed-insights": "^1.1.0",
     "@vercel/toolbar": "^0.1.41",
     "autoprefixer": "^10.4.20",
