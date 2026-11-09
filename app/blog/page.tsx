@@ -10,7 +10,7 @@ export default async function Page() {
   const posts = getBlogPosts()
 
   return (
-    <div className="pt-8">
+    <main id="blog-main" className="pt-8">
     <div className={cn('container')}>
         <h1 className="text-2xl mb-6">Blog</h1>
         <ul className="list-disc pl-5 space-y-1">
@@ -28,7 +28,7 @@ export default async function Page() {
             ))}
         </ul>
     </div>
-    </div>
+    </main>
   )
 }
 

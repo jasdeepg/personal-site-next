@@ -29,11 +29,16 @@ test('unknown slugs and traversal attempts return no post', () => {
 test('all article images, including responsive variants, exist locally', () => {
   for (const post of posts) {
     const { html } = getBlogPost(post.slug)
-    for (const [, source] of html.matchAll(/(?:src|srcset)="([^"]+)"/g)) {
-      assert.ok(source.startsWith('/blog/'), `Nonlocal image: ${source}`)
-      const local = decodeURIComponent(source)
-      assert.ok(existsSync(path.join('public', local)), `Missing image: ${local}`)
-      assert.ok(readFileSync(path.join('public', local)).length > 0)
+    for (const [, attribute, value] of html.matchAll(/(src|srcset)="([^"]+)"/g)) {
+      const sources = attribute === 'srcset'
+        ? value.split(',').map((candidate) => candidate.trim().split(/\s+/)[0])
+        : [value]
+      for (const source of sources) {
+        assert.ok(source.startsWith('/blog/'), `Nonlocal image: ${source}`)
+        const local = decodeURIComponent(source)
+        assert.ok(existsSync(path.join('public', local)), `Missing image: ${local}`)
+        assert.ok(readFileSync(path.join('public', local)).length > 0)
+      }
     }
   }
 })

@@ -21,7 +21,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className={`${crimsonText.variable} font-serif max-w-3xl mx-auto px-4 py-8`}>
+    <div className={`blog-shell ${crimsonText.variable} font-serif max-w-3xl mx-auto px-4 py-8`}>
+        <a href="#blog-main" className="blog-skip-link">Skip to content</a>
         <StructuredData data={[personSchema, websiteSchema]} />
         <header className="mb-12">
           <p className="text-4xl mb-2">hi, i&apos;m jasdeep</p>
