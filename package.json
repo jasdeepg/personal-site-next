@@ -6,17 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run lint && npm run typecheck && npm test",
+    "smoke": "node scripts/smoke-test.mjs",
+    "format:blog": "node scripts/format-blog.mjs"
   },
   "dependencies": {
+    "@flags-sdk/vercel": "^1.6.0",
     "@hookform/resolvers": "^3.9.1",
     "@opentelemetry/api": "^1.9.0",
-    "@payloadcms/db-postgres": "3.20.0",
-    "@payloadcms/next": "3.20.0",
-    "@payloadcms/payload-cloud": "3.20.0",
-    "@payloadcms/plugin-seo": "3.21.0",
-    "@payloadcms/richtext-lexical": "3.21.0",
-    "@payloadcms/storage-vercel-blob": "3.23.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
     "@radix-ui/react-aspect-ratio": "^1.1.1",
@@ -46,8 +46,6 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@vercel/analytics": "^1.4.1",
     "@vercel/edge-config": "^1.4.2",
-    "@flags-sdk/vercel": "^1.6.0",
-    "flags": "^4.4.0",
     "@vercel/speed-insights": "^1.1.0",
     "@vercel/toolbar": "^0.1.41",
     "autoprefixer": "^10.4.20",
@@ -58,13 +56,12 @@
     "d3": "latest",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
-    "graphql": "^16.8.1",
+    "flags": "^4.4.0",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "next": "15.1.11",
     "next-themes": "^0.4.4",
     "package": "^1.0.1",
-    "payload": "3.23.0",
     "react": "19.0.0",
     "react-day-picker": "8.10.1",
     "react-dom": "19.0.0",
@@ -79,9 +76,14 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/d3": "^7.4.3",
     "@types/node": "^22",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "15.1.11",
+    "parse5": "^7.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
@@ -89,5 +91,9 @@
   "resolutions": {
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3"
-  }
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "yarn@1.22.22"
 }
